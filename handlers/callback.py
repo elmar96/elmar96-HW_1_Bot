@@ -4,7 +4,6 @@ from aiogram.types import ParseMode, InlineKeyboardButton, InlineKeyboardMarkup
 from config import bot
 
 
-
 async def quize_2(call: types.CallbackQuery):
     markup = InlineKeyboardMarkup()
     button_call_2 = InlineKeyboardButton("Следующая Викторина",
@@ -30,12 +29,7 @@ async def quize_2(call: types.CallbackQuery):
     )
 
 
-
 async def quize_3(call: types.CallbackQuery):
-    # markup = InlineKeyboardMarkup()
-    # button_call_3 = InlineKeyboardButton("Следующая Викторина",
-    #                                      callback_data="button_call_3")
-    # markup.add(button_call_3)
     question = "какой из вариантов принтует " \
                "вывод указанный выше действий:"
     answers = [
@@ -56,32 +50,9 @@ async def quize_3(call: types.CallbackQuery):
         correct_option_id=3,
         explanation="This is too easy for explanation",
         explanation_parse_mode=ParseMode.MARKDOWN_V2,
-        # reply_markup=markup,
+
     )
 
-
-# @dp.callback_query_handler(lambda call: call.data == "button_call_3")
-# async def quiz_4(call: types.CallbackQuery):
-#     question = "Названия языка Python произошло ..."
-#     answers = [
-#         "Рептилии"
-#         "от ТВ-шоу «Летающий цирк Монти Пайтона»"
-#         "программисты придумали"
-#         "нет правильного ответа"
-#     ]
-#
-#     await bot.send_poll(
-#         chat_id=call.message.chat.id,
-#         question=question,
-#         options=answers,
-#         is_anonymous=False,
-#         type="quiz",
-#         correct_option_id=1,
-#         explanation="Создатель языка Гвидо ван Россум заявил, что название "
-#                     "языка происходит от ТВ-шоу «Летающий цирк Монти Пайтона»",
-#         explanation_parse_mode=ParseMode.MARKDOWN_V2,
-#
-#     )
 
 def register_handlers_callback(dp: Dispatcher):
     dp.register_callback_query_handler(quize_2,
