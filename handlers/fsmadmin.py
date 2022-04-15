@@ -15,7 +15,7 @@ class FSMADMIN(StatesGroup):
 async def is_admin_command(message: types.Message):
     global ADMIN_ID
     ADMIN_ID = message.from_user.id
-    await bot.send_message(message.from_user.id, "Yes admin\n"
+    await bot.send_message(message.from_user.id, "Yes user\n"
                                                  "What dou you need",
                            reply_markup=admin_kb.button_admin)
 
