@@ -4,6 +4,7 @@ from datetime import datetime
 
 from keyboards import client_kb
 from config import bot
+from database import bot_db
 
 
 async def hello(message: types.Message):
@@ -66,6 +67,10 @@ async def survey(message: types.Message):
                            reply_markup=markup)
 
 
+async def get_all_tvshow(message: types.Message):
+    await bot_db.sql_select(message)
+
+
 def register_handlers_client(dp: Dispatcher):
     dp.register_message_handler(hello, commands=['start'])
     dp.register_message_handler(help, commands=['help'])
@@ -73,3 +78,4 @@ def register_handlers_client(dp: Dispatcher):
     dp.register_message_handler(survey, commands=['survey'])
     dp.register_message_handler(info, commands=['info'])
     dp.register_message_handler(times, commands=['times'])
+    dp.register_message_handler(get_all_tvshow, commands=['tvshow'])
