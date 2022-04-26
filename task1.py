@@ -53,4 +53,4 @@ def converter(curs, dollar1, dollar2):
     print(f"\n{curs * dollar1} \n{curs * dollar2} ")
 
 
-converter(6.75, 15, 465)
+(converter(6.75, 15, 465))
