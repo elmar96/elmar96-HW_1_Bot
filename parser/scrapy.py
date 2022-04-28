@@ -28,17 +28,17 @@ def get_data(html):
             }
         )
 
-    return movies[15].values()
+    return movies
 
 
 def scrapy_script():
     html = get_requests(URL)
     if html.status_code == 200:
         movies = []
-        for page in range(0, 1):
-            html = get_requests("https://w139.zona.plus/")
+        for page in range(1, 3):
+            html = get_requests(f"https://w139.zona.plus/")
             movies.extend(get_data(html.text))
-        return movies
+        return movies[0].values()
     else:
         raise Exception("Error in scrapy script function")
 
